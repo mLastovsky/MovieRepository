@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode(of = "name")
 @Builder
 @ToString
 public class Movie {
