@@ -7,8 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.time.LocalDateTime;
-
 @RestControllerAdvice
 public class ExceptionHandlerController {
 
@@ -23,7 +21,7 @@ public class ExceptionHandlerController {
     }
 
     @ExceptionHandler(DirectorNotFoundException.class)
-    public ResponseEntity<ErrorDetails> directorNotFoundException(MovieNotFoundException e) {
+    public ResponseEntity<ErrorDetails> directorNotFoundException(DirectorNotFoundException e) {
         var errorDetails = new ErrorDetails(
                 "Director Not Found"
         );
