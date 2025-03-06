@@ -3,11 +3,12 @@ package com.mlastovsky.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode(of = "firstName")
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -17,10 +18,11 @@ public class Director {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName;
+    @Column(nullable = false, unique = true)
+    private String firstname;
 
     @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
-    private List<Movie> movies;
+    private Set<Movie> movies;
 
 }
