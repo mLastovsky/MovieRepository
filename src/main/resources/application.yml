@@ -20,5 +20,8 @@ spring:
 
 logging:
   level:
-    root: warn
-    com.mlastovsky.controller: info
+    root: info
+    com.mlastovsky:
+      controller: info
+      service:
+        DirectorService: debug
