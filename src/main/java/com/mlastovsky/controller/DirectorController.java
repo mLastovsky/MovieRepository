@@ -23,14 +23,14 @@ public class DirectorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Director> getMovieById(@PathVariable Long id) throws DirectorNotFoundException {
+    public ResponseEntity<Director> getDirectorById(@PathVariable Long id) throws DirectorNotFoundException {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(directorService.getDirectorById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Void> addMovie(@RequestBody Director director) {
+    public ResponseEntity<Void> addDirector(@RequestBody Director director) {
         directorService.addDirector(director);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -38,7 +38,7 @@ public class DirectorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMovie(@PathVariable Long id) throws DirectorNotFoundException {
+    public ResponseEntity<Void> deleteDirector(@PathVariable Long id) throws DirectorNotFoundException {
         directorService.deleteDirector(id);
         return ResponseEntity
                 .status(HttpStatus.NO_CONTENT)
