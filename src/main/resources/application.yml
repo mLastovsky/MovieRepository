@@ -9,6 +9,9 @@ spring:
     driver-class-name: org.postgresql.Driver
 
   jpa:
+    hibernate:
+      ddl-auto: update
+
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -17,4 +20,5 @@ spring:
 
 logging:
   level:
-    root: info
+    root: warn
+    com.mlastovsky.controller: info
