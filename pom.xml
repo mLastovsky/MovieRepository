@@ -11,7 +11,7 @@
 
     <groupId>com.mlastovsky</groupId>
     <artifactId>MoviesRepository</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <properties>
         <java.version>21</java.version>
@@ -78,6 +78,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <imageName>mlastovsky/movie-repository:${project.version}</imageName>
                 </configuration>
             </plugin>
         </plugins>
