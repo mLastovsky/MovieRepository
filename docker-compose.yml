@@ -2,13 +2,13 @@ services:
   app:
     image: mlastovsky/movie-repository:1.0.0
     container_name: movie-repository-service
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/movies_repository
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 128875
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
     depends_on:
       - db
 
@@ -19,10 +19,9 @@ services:
       POSTGRES_DB: movies_repository
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 128875
-    restart: unless-stopped
     volumes:
       - movie-repository-db:/var/lib/postgresql/data
-
+    restart: unless-stopped
 
 volumes:
   movie-repository-db:
