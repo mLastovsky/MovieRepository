@@ -23,6 +23,5 @@ services:
     volumes:
       - movie-repository-db:/var/lib/postgresql/data
 
-
 volumes:
   movie-repository-db:
