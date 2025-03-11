@@ -3,22 +3,23 @@ services:
     image: mlastovsky/movie-repository:1.0.0
     container_name: movie-repository-service
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/movies_repository
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: 128875
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
     ports:
       - "8080:8080"
     restart: unless-stopped
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres
     container_name: movie-repository-db
     environment:
-      POSTGRES_DB: movies_repository
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 128875
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 10s
