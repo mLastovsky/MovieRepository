@@ -10,6 +10,8 @@ MovieRepository is a Java Spring Boot application designed to manage and organiz
 
 - Database: PostgreSQL
 
+- Database Migration Tool: Flyway
+
 - Containerization: Docker, Docker Compose
 
 ## How to Run Locally
